@@ -1,0 +1,15 @@
+{
+  "name": "AlgorithmsClass",
+  "version": "0.0.1",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "mocha": "latest",
+    "grunt-mocha-test": "^0.11.0"
+  }
+}
