@@ -29,6 +29,10 @@ QuickUnion.prototype.generateMap = function (numberOfItems) {
 * @return {QuickFind} Quick find reference object
 */
 QuickUnion.prototype.union = function (p, q) {
+	if (this.isConnected(p, q)) {
+		return;
+	}
+
 	this.map[this.root(p)] = this.root(q);
 };
 

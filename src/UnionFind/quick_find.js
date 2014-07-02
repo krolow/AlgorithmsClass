@@ -29,6 +29,10 @@ QuickFind.prototype.generateMap = function (numberOfItems) {
  * @return {QuickFind} Quick find reference object
  */
 QuickFind.prototype.union = function (p, q) {
+	if (this.isConnected(p, q)) {
+		return;
+	}
+		
 	var pId = this.map[p];
 	var qId = this.map[q];
 
