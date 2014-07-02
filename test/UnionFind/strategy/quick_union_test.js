@@ -2,14 +2,17 @@ var QuickUnion = require('../../../src/UnionFind/strategy/quick_union');
 var assert = require('assert');
 
 
-describe('Quick Find', function () {
+describe('Quick Union', function () {
 
 	it('should find connected points', function () {
 		var pixels = new QuickUnion(10);
 		assert.equal(pixels.isConnected(4, 4), true);
 		assert.equal(pixels.isConnected(2, 1), false);
 		pixels.union(4, 3);
+		assert.equal(pixels.root(4), 3);
 		pixels.union(3, 8);
+		assert.equal(pixels.root(3), 8);
+		assert.equal(pixels.root(4), 8);
 		pixels.union(2, 1);
 		pixels.union(4, 9);
 		pixels.union(5, 6);
