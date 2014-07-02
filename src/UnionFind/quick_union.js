@@ -56,6 +56,7 @@ QuickUnion.prototype.isConnected = function (p, q) {
  */
 QuickUnion.prototype.root = function (point) {
 	while (point !== this.map[point]) {
+		this.map[point] = this.map[this.map[point]];
 		point = this.map[point];
 	}
 
