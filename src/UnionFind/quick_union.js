@@ -4,21 +4,13 @@
  * @param {Int} numberOfItems The number of items
  */
 var QuickUnion = function (numberOfItems) {
-	this.map = this.generateMap(numberOfItems);
-};
+	this.map = new Array(numberOfItems);
+	this.sizes = new Array(numberOfItems);
 
-/**
-* Generate a map array with the index
-*
-* @param {Int} numberOfObjects Number of items
-*/
-QuickUnion.prototype.generateMap = function (numberOfItems) {
-	var map = new Array(numberOfItems);
 	for (var i=0; i<numberOfItems; i++) {
-		map[i] = i;
+		this.map[i] = i;
+		this.sizes[i] = 1;
 	}
-
-	return map;
 };
 
 /**
@@ -26,13 +18,23 @@ QuickUnion.prototype.generateMap = function (numberOfItems) {
 *
 * @param  {Int} p First Point
 * @param  {Int} q Second Point
-* @return {QuickFind} Quick find reference object
+* @return {void}
 */
 QuickUnion.prototype.union = function (p, q) {
 	if (this.isConnected(p, q)) {
 		return;
 	}
 
+	var pRoot = this.root(p);
+	var qRoot = this.root(q);
+
+	if (this.sizes[pRoot] > this.sizes[qRoot]) {
+		this.sizes[qRoot]++;
+		this.map[qRoot] = this.root(p);
+		return;
+	}
+
+	this.sizes[pRoot]++;
 	this.map[this.root(p)] = this.root(q);
 };
 
