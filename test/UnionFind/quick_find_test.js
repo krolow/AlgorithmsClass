@@ -1,4 +1,4 @@
-var QuickFind = require('../../../src/UnionFind/strategy/quick_find');
+var QuickFind = require('../../src/UnionFind/quick_find');
 var assert = require('assert');
 
 

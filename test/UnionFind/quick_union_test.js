@@ -1,4 +1,4 @@
-var QuickUnion = require('../../../src/UnionFind/strategy/quick_union');
+var QuickUnion = require('../../src/UnionFind/quick_union');
 var assert = require('assert');
 
 
